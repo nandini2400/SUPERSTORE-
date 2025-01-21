@@ -1,8 +1,33 @@
-# SUPERSTORE-
+# SUPERSTORE
 
 **Introduction**
 
+Your code is a well-structured data processing pipeline that ingests, transforms, and aggregates data from a CSV file stored in Google Cloud Storage (GCS) into Google BigQuery. It follows the Bronze-Silver-Gold architecture, which is a common pattern in data engineering for managing data quality and transformation. Below is a detailed explanation of the code and suggestions for improvement.
 
+**Code Overview**
+process_dataset Function:
+
+Triggered by a change in a GCS bucket (e.g., when a new file is uploaded).
+
+Processes a CSV file (Cleaned_Superstore_Sales.csv) and loads it into BigQuery.
+
+Follows the Bronze-Silver-Gold architecture:
+
+**Bronze Layer:** Raw data is loaded into BigQuery.
+
+**Silver Layer:** Data is cleaned and transformed (e.g., removing duplicates and null values).
+
+**Gold Layer:** Data is aggregated (e.g., total sales by category).
+
+## Steps:
+
+Load raw data from GCS into the Bronze Layer.
+
+Query data from the Bronze Layer and clean it for the Silver Layer.
+
+Aggregate data for the Gold Layer.
+
+Save the processed data into BigQuery tables.
 This project analyzes sales and profitability data to identify the top 10 performing products. The visualization is created using Tableau, a powerful data visualization tool, to provide insights that can guide product and sales strategies.
 
 **Objective**
